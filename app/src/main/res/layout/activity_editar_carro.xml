@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:visibility="visible"
+tools:context="co.wgarcia.apps.carros.EditarCarro"
+tools:layout_editor_absoluteX="8dp"
+tools:layout_editor_absoluteY="8dp">
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="@string/nuevo"
+    android:textAlignment="center"
+    android:textAllCaps="false"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:visibility="visible" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/caja_Placa_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/txt_Placa_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/placa" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/caja_Marca_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txt_Marca_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/marca" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/caja_Modelo_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txt_Modelo_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/modelo"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spn_Color_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/caja_Precio_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txt_Precio_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/precio"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="guardar"
+        android:text="@string/guardar"
+        tools:ignore="ButtonStyle" />
+
+    <Button
+        android:id="@+id/btn_limpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="limpiar"
+        android:text="@string/limpiar" />
+</LinearLayout>
+</LinearLayout>
