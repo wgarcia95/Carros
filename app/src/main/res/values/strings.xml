@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Carros</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <string name="nuevo">Nuevo Carro</string>
     <string name="placa">Placa</string>
     <string name="marca">Marca</string>
@@ -25,17 +25,17 @@
         <item>@string/amarillo</item>
     </string-array>
     <string name="guardado">Guardado</string>
-    <string name="color">Color</string>
+    <string name="color" translatable="false">Color</string>
 
     <string name="modificar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="errorColor">Seleccione un color</string>
-    <string name="errorVacio">Este campo no puede estar vacio</string>
+    <string name="errorVacio">Ingrese un valor valido</string>
 
-    <string name="titulo_eliminar_mensaje">Eliminar Carro</string>
-    <string name="eliminar_mensaje">¿Está seguro que desea elminar este carro?</string>
-    <string name="si_eliminar_mensaje">Si</string>
-    <string name="no_eliminar_mensaje">No</string>
-    <string name="error_editar">Ya existe un carro con esta placa</string>
+    <string name="titulo_eliminar_mensaje">Eliminar</string>
+    <string name="eliminar_mensaje">¿Está seguro?</string>
+    <string name="si_eliminar_mensaje" translatable="false">Si</string>
+    <string name="no_eliminar_mensaje" translatable="false">No</string>
+    <string name="error_editar">Esta placa ya se encuentra registrada</string>
 
 </resources>

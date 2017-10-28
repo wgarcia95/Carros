@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Carros</string>
+    <string name="amarillo">Yellow</string>
+    <string name="azul">Blue</string>
+    <string name="blanco">White</string>
+    <string name="eliminar">Delete</string>
+    <string name="eliminar_mensaje">¿Are you sure?</string>
+    <string name="errorColor">Choose a color</string>
+    <string name="errorVacio">Enter a valid value</string>
+    <string name="error_editar">This plate is already registered</string>
+    <string name="guardado">Saved</string>
+    <string name="guardar">Save</string>
+    <string name="limpiar">Clear</string>
+    <string name="marca">Brand</string>
+    <string name="modelo">Model</string>
+    <string name="modificar">Edit</string>
+    <string name="negro">Black</string>
+    <string name="nuevo">New car</string>
+    <string name="placa">Plate</string>
+    <string name="precio">Price</string>
+    <string name="rojo">Red</string>
+    <string name="seleccione">-Choose a color-</string>
+    <string name="titulo_eliminar_mensaje">Delete</string>
+</resources>
