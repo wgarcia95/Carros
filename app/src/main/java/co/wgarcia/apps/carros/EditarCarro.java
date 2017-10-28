@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.os.SystemClock.sleep;
+
 public class EditarCarro extends AppCompatActivity {
 
     private Resources res;
@@ -68,22 +70,26 @@ public class EditarCarro extends AppCompatActivity {
     }
 
     public void editar(View v){
-        if(validar(v)){
+        if(validar(v)) {
             Carro c = new Carro(id, foto, txtplaca.getText().toString().trim(),
-                                txtmarca.getText().toString().trim(),
-                                txtmodelo.getText().toString().trim(),
-                                scolor.getSelectedItemPosition(),
-                                Integer.parseInt(txtprecio.getText().toString()));
-            if(Metodos.exitencia_carro(Datos.obtenerCarros(), c.getPlaca())==false){
+                    txtmarca.getText().toString().trim(), txtmodelo.getText().toString().trim(),
+                    scolor.getSelectedItemPosition(), Integer.parseInt(txtprecio.getText().toString()));
+            if (Metodos.carrosIguales(carro, c)){
                 Datos.editarCarro(c);
-                carro = c;
+                Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                onBackPressed(c);
+            } else if(Metodos.existePlaca(Datos.obtenerCarros(), c.getPlaca()) == false){
+                Datos.editarCarro(c);
+                Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 onBackPressed();
             }else{
+                Snackbar.make(v, res.getString(R.string.error_editar), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         }
-        Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-        onBackPressed();
+
     }
 
     public boolean validar(View v){
@@ -123,11 +129,11 @@ public class EditarCarro extends AppCompatActivity {
         reiniciar();
     }
 
-    public void onBackPressed(){
+    public void onBackPressed(Carro c){
         finish();
         Intent i = new Intent(EditarCarro.this, DetalleCarro.class);
-        Bundle b = Metodos.crear_bundle(carro);
-        i.putExtra("datos",b);
+        Bundle b = Metodos.crear_bundle(c);
+        i.putExtra("datos", b);
         startActivity(i);
     }
 

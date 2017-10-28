@@ -18,13 +18,14 @@ public class Metodos {
         return fotos.get(select);
     }
 
-    public static boolean exitencia_carro(ArrayList<Carro> carros, String placa){
+    public static boolean existePlaca(ArrayList<Carro> carros, String placa){
         for (int i = 0; i <carros.size() ; i++) {
-            if(carros.get(i).getPlaca().equals(placa)){
+            if(carros.get(i).getPlaca().equalsIgnoreCase(placa)){
                 return true;
             }
         }
         return false;
+
     }
 
     public static Bundle crear_bundle(Carro c){
@@ -38,5 +39,12 @@ public class Metodos {
         b.putInt("precio", c.getPrecio());
 
         return b;
+    }
+
+    public static boolean carrosIguales(Carro c1, Carro c2){
+        if(c1.getPlaca().equalsIgnoreCase(c2.getPlaca())){
+            return  true;
+        }
+        return false;
     }
 }

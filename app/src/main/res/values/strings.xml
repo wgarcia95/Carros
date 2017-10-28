@@ -36,5 +36,6 @@
     <string name="eliminar_mensaje">¿Está seguro que desea elminar este carro?</string>
     <string name="si_eliminar_mensaje">Si</string>
     <string name="no_eliminar_mensaje">No</string>
+    <string name="error_editar">Ya existe un carro con esta placa</string>
 
 </resources>

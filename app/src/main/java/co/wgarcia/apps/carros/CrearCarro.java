@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.os.SystemClock.sleep;
+
 public class CrearCarro extends AppCompatActivity {
 
     private TextInputLayout iPlaca, iMarca, iModelo, iPrecio;
@@ -57,10 +59,15 @@ public class CrearCarro extends AppCompatActivity {
                     txtmarca.getText().toString().trim(), txtmodelo.getText().toString().trim(),
                     color.getSelectedItemPosition(),
                     Integer.parseInt(txtprecio.getText().toString()));
-
-            c.guardar();
-            Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+            if(Metodos.existePlaca(Datos.obtenerCarros(), c.getPlaca())==false){
+                c.guardar();
+                Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                onBackPressed();
+            }else{
+                Snackbar.make(v, res.getString(R.string.error_editar), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
             limpiar();
         }
     }

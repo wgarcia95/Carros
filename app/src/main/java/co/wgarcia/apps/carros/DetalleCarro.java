@@ -70,6 +70,7 @@ public class DetalleCarro extends AppCompatActivity {
     }
 
     public void editar_Carro(View v){
+        finish();
         Intent i = new Intent(DetalleCarro.this, EditarCarro.class);
         Bundle b = Metodos.crear_bundle(carro);
         i.putExtra("editar",b);
@@ -103,9 +104,6 @@ public class DetalleCarro extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
-
-
     }
 
 
