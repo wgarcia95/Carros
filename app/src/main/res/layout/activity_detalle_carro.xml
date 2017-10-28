@@ -8,13 +8,15 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="192dp"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:layout_height="300dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -32,7 +34,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_2"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"></android.support.v7.widget.Toolbar>
+                android:layout_height="65dp"></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -178,7 +180,7 @@
             android:id="@+id/menu_modificar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="editar"
+            android:onClick="editar_Carro"
             android:src="@drawable/ic_edit"
             app:fab_colorNormal="@color/colorAccent"
             app:fab_colorPressed="@color/colorAccent"

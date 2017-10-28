@@ -110,15 +110,7 @@ public class Principal extends AppCompatActivity implements AdaptadorCarro.OnCar
     @Override
     public void onCarroClick(Carro c) {
         Intent i = new Intent(Principal.this, DetalleCarro.class);
-        Bundle b = new Bundle();
-        b.putString("id", c.getId());
-        b.putInt("foto", c.getFoto());
-        b.putString("placa", c.getPlaca());
-        b.putString("marca", c.getMarca());
-        b.putString("modelo", c.getModelo());
-        b.putInt("color", c.getColor());
-        b.putInt("precio", c.getPrecio());
-
+        Bundle b = Metodos.crear_bundle(c);
         i.putExtra("datos", b);
         startActivity(i);
     }

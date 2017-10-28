@@ -21,6 +21,7 @@ public class EditarCarro extends AppCompatActivity {
     private Bundle bundle;
     private int foto, color, precio;
     private String id, placa, marca, modelo;
+    private Carro carro;
 
     private TextInputLayout iPlaca, iMarca, iModelo, iPrecio;
     private EditText txtplaca, txtmarca, txtmodelo, txtprecio;
@@ -51,6 +52,8 @@ public class EditarCarro extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opc);
         scolor.setAdapter(adapter);
 
+        i = getIntent();
+        bundle = i.getBundleExtra("editar");
         id = bundle.getString("id");
         foto = bundle.getInt("foto");
         placa = bundle.getString("placa");
@@ -59,27 +62,29 @@ public class EditarCarro extends AppCompatActivity {
         color = bundle.getInt("color");
         precio = bundle.getInt("precio");
 
-        txtplaca.setText(placa);
-        txtmarca.setText(marca);
-        txtmodelo.setText(modelo);
-        scolor.setSelection(color);
-        txtprecio.setText(precio);
+        carro = new Carro(id, foto, placa, marca, modelo, color, precio);
+        reiniciar();
 
     }
 
     public void editar(View v){
         if(validar(v)){
-            Carro c = new Carro(Metodos.fotoAleatoria(fotos), txtplaca.getText().toString().trim(),
-                                txtmarca.getText().toString().trim(), txtmodelo.getText().toString().trim(),
+            Carro c = new Carro(id, foto, txtplaca.getText().toString().trim(),
+                                txtmarca.getText().toString().trim(),
+                                txtmodelo.getText().toString().trim(),
                                 scolor.getSelectedItemPosition(),
                                 Integer.parseInt(txtprecio.getText().toString()));
             if(Metodos.exitencia_carro(Datos.obtenerCarros(), c.getPlaca())==false){
                 Datos.editarCarro(c);
+                carro = c;
+                onBackPressed();
             }else{
             }
         }
+        Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+        onBackPressed();
     }
-
 
     public boolean validar(View v){
         if(validar_vacio(txtplaca, iPlaca)){
@@ -106,4 +111,24 @@ public class EditarCarro extends AppCompatActivity {
         }
         return false;
     }
+
+    private void reiniciar(){
+        txtplaca.setText(placa);
+        txtmarca.setText(marca);
+        txtmodelo.setText(modelo);
+        scolor.setSelection(color);
+        txtprecio.setText(precio+"");
+    }
+    public void reiniciar(View v){
+        reiniciar();
+    }
+
+    public void onBackPressed(){
+        finish();
+        Intent i = new Intent(EditarCarro.this, DetalleCarro.class);
+        Bundle b = Metodos.crear_bundle(carro);
+        i.putExtra("datos",b);
+        startActivity(i);
+    }
+
 }

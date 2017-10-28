@@ -1,5 +1,7 @@
 package co.wgarcia.apps.carros;
 
+import android.os.Bundle;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,5 +25,18 @@ public class Metodos {
             }
         }
         return false;
+    }
+
+    public static Bundle crear_bundle(Carro c){
+        Bundle b = new Bundle();
+        b.putString("id", c.getId());
+        b.putInt("foto", c.getFoto());
+        b.putString("placa", c.getPlaca());
+        b.putString("marca", c.getMarca());
+        b.putString("modelo", c.getModelo());
+        b.putInt("color", c.getColor());
+        b.putInt("precio", c.getPrecio());
+
+        return b;
     }
 }

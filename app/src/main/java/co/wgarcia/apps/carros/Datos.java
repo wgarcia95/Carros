@@ -36,4 +36,8 @@ public class Datos {
 
         //personas.set(pos, p);
     }
+
+    public static void eliminar(Carro c){
+        dbreference.child(db).child(c.getId()).removeValue();
+    }
 }

@@ -89,7 +89,7 @@ tools:layout_editor_absoluteY="8dp">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:onClick="guardar"
+        android:onClick="editar"
         android:text="@string/guardar"
         tools:ignore="ButtonStyle" />
 

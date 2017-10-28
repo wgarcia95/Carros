@@ -32,4 +32,9 @@
     <string name="errorColor">Seleccione un color</string>
     <string name="errorVacio">Este campo no puede estar vacio</string>
 
+    <string name="titulo_eliminar_mensaje">Eliminar Carro</string>
+    <string name="eliminar_mensaje">¿Está seguro que desea elminar este carro?</string>
+    <string name="si_eliminar_mensaje">Si</string>
+    <string name="no_eliminar_mensaje">No</string>
+
 </resources>
