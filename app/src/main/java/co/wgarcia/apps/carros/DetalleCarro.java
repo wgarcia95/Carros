@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +24,7 @@ public class DetalleCarro extends AppCompatActivity {
 
     private Resources res;
     private Intent i;
-    private Bundle bundle;
+    private Bundle bundle, mensaje;
     private int foto, color, precio;
     private String id, placa, marca, modelo;
 
@@ -66,6 +68,12 @@ public class DetalleCarro extends AppCompatActivity {
         lblModelo.setText(modelo);
         lblColor.setText(opc[color]);
         lblPrecio.setText("$ "+ NumberFormat.getNumberInstance(Locale.US).format(precio));
+
+        mensaje = i.getBundleExtra("editado");
+        if (mensaje != null){
+            Snackbar.make(findViewById(android.R.id.content), res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
 
     }
 

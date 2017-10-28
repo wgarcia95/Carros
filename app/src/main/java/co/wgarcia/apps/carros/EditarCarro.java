@@ -81,8 +81,8 @@ public class EditarCarro extends AppCompatActivity {
                 onBackPressed(c);
             } else if(Metodos.existePlaca(Datos.obtenerCarros(), c.getPlaca()) == false){
                 Datos.editarCarro(c);
-                Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
                 onBackPressed(c);
             }else{
                 Snackbar.make(v, res.getString(R.string.error_editar), Snackbar.LENGTH_LONG)
@@ -133,7 +133,10 @@ public class EditarCarro extends AppCompatActivity {
         finish();
         Intent i = new Intent(EditarCarro.this, DetalleCarro.class);
         Bundle b = Metodos.crear_bundle(c);
+        Bundle mensaje = new Bundle();
+        mensaje.putBoolean("editado", true);
         i.putExtra("datos", b);
+        i.putExtra("editado", mensaje);
         startActivity(i);
     }
 
