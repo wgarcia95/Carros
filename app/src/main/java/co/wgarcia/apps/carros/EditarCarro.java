@@ -83,7 +83,7 @@ public class EditarCarro extends AppCompatActivity {
                 Datos.editarCarro(c);
                 Snackbar.make(v, res.getString(R.string.guardado), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                onBackPressed();
+                onBackPressed(c);
             }else{
                 Snackbar.make(v, res.getString(R.string.error_editar), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();

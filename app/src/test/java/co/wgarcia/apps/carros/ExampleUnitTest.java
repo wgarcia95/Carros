@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void existe_Carro_correcto(){
+    public void existe_carro_correcto(){
         ArrayList<Carro> carros = new ArrayList<>();
         Carro c1 = new Carro("ABC-123", "MAZDA", "2016", 1, 150000000);
         Carro c2 = new Carro("DCE-136", "BMW", "2019", 3, 260850000);
@@ -25,10 +25,10 @@ public class ExampleUnitTest {
         carros.add(c3);
         carros.add(c4);
 
-        assertTrue(Metodos.exitencia_carro(carros, "FGH-937"));
+        assertTrue(Metodos.existePlaca(carros, "FGH-937"));
     }
     @Test
-    public void existe_Carro_incorrecto(){
+    public void existe_carro_incorrecto(){
         ArrayList<Carro> carros = new ArrayList<>();
         Carro c1 = new Carro("ABC-123", "MAZDA", "2016", 1, 150000000);
         Carro c2 = new Carro("DCE-136", "BMW", "2019", 3, 260850000);
@@ -40,6 +40,23 @@ public class ExampleUnitTest {
         carros.add(c3);
         carros.add(c4);
 
-        assertFalse(Metodos.exitencia_carro(carros, "KHM-687"));
+        assertFalse(Metodos.existePlaca(carros, "KHM-687"));
     }
+
+    @Test
+    public void carros_iguales_correcto(){
+        Carro c1 = new Carro("ABC-123", "MAZDA", "2016", 1, 150000000);
+        Carro c2 = new Carro("ABC-123", "BMW", "2019", 3, 260850000);
+
+        assertTrue(Metodos.carrosIguales(c1, c2));
+    }
+
+    @Test
+    public void carros_iguales_incorrecto(){
+        Carro c1 = new Carro("ABC-123", "MAZDA", "2016", 1, 150000000);
+        Carro c2 = new Carro("JKL-983", "BMW", "2019", 3, 260850000);
+
+        assertFalse(Metodos.carrosIguales(c1, c2));
+    }
+
 }
