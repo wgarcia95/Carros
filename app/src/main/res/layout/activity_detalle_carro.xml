@@ -168,7 +168,7 @@
         fab:menu_colorPressed="@color/colorAccent"
         fab:menu_colorRipple="@color/ripple_color"
         fab:menu_animationDelayPerItem="50"
-        fab:menu_icon="@drawable/fab_add"
+        fab:menu_icon="@drawable/ic_expand_less"
         fab:menu_buttonSpacing="0dp"
         fab:menu_labels_margin="0dp"
         fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
